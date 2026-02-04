@@ -41,25 +41,16 @@ button{
   position:absolute;
 }
 
-#yesBtn{
-  background:#ff4d6d;
-  color:white;
-  left:60px;
-}
-
-#noBtn{
-  background:#ccc;
-  right:60px;
-}
+#yesBtn{ background:#ff4d6d; color:white; left:60px; }
+#noBtn{ background:#ccc; right:60px; }
 </style>
 </head>
 
 <body>
 
 <div class="card">
-  <h1>Hey <span>AYESHA</span> 💖</h1>
+  <h1>Hey <span>PRIYA</span> 💖</h1>
   <h2>Will you be my Valentine?</h2>
-
   <div class="buttons">
     <button id="yesBtn">Yes ❤️</button>
     <button id="noBtn">No 😜</button>
@@ -67,7 +58,6 @@ button{
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
 <script>
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
@@ -79,21 +69,11 @@ function moveButton() {
 }
 
 noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("touchstart", function(e) {
-  e.preventDefault();
-  moveButton();
-});
+noBtn.addEventListener("touchstart", e => { e.preventDefault(); moveButton(); });
 
 yesBtn.addEventListener("click", () => {
-  confetti({
-    particleCount: 200,
-    spread: 100,
-    origin: { y: 0.6 }
-  });
-
-  setTimeout(() => {
-    window.location.href = "love.html";
-  }, 1200);
+  confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+  setTimeout(() => { window.location.href = "love.html"; }, 1200);
 });
 </script>
 
