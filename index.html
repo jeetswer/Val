@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>For You ❤️</title>
 
 <style>
@@ -12,39 +13,60 @@ body{
   justify-content:center;
   align-items:center;
   font-family:Arial, sans-serif;
-  overflow:hidden;
   background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  overflow:hidden;
 }
 
-/* First screen card */
+/* Card */
 .card{
   text-align:center;
   background:white;
-  padding:80px;
-  width:600px;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  padding:40px 20px;
+  width:90%;
+  max-width:420px;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.25);
 }
 
+/* Text */
+h1{
+  font-size:32px;
+  margin-bottom:15px;
+}
+
+h2{
+  font-size:26px;
+  margin-bottom:30px;
+}
+
+/* Buttons area */
 .buttons{
-  margin-top:30px;
   position:relative;
-  height:120px;
+  height:140px;
 }
 
+/* Buttons */
 button{
-  padding:18px 40px;
-  font-size:24px;
+  padding:18px 30px;
+  font-size:22px;
   border:none;
-  border-radius:10px;
+  border-radius:12px;
   cursor:pointer;
   position:absolute;
 }
 
-#yesBtn{ background:#ff4d6d; color:white; left:60px; }
-#noBtn{ background:#ccc; right:60px; }
+#yesBtn{
+  background:#ff4d6d;
+  color:white;
+  left:10%;
+}
 
-/* Love screen (hidden initially) */
+#noBtn{
+  background:#ccc;
+  right:10%;
+}
+
+/* Love Screen */
 .loveScreen{
   display:none;
   position:absolute;
@@ -58,22 +80,23 @@ button{
   align-items:center;
   color:white;
   text-align:center;
+  padding:20px;
 }
 
 .loveScreen h1{
-  font-size:110px;
+  font-size:48px;
   color:#ff2e63;
-  text-shadow:0 0 20px #ff2e63, 0 0 40px #ff2e63, 0 0 60px #ff2e63;
+  text-shadow:0 0 20px #ff2e63;
 }
 
 .heart{
-  font-size:130px;
+  font-size:80px;
   margin:20px 0;
 }
 
 .photo{
-  width:220px;
-  height:220px;
+  width:200px;
+  height:200px;
   border-radius:50%;
   object-fit:cover;
   border:5px solid #ff2e63;
@@ -85,12 +108,10 @@ button{
 
 <body>
 
-<!-- Music -->
 <audio id="bgMusic" loop>
   <source src="https://jeetswer.github.io/Val/sajni10.mp3" type="audio/mpeg">
 </audio>
 
-<!-- First Screen -->
 <div class="card" id="firstScreen">
   <h1>Hey <span>AYESHA</span> 💖</h1>
   <h2>Will you be my Valentine?</h2>
@@ -100,7 +121,6 @@ button{
   </div>
 </div>
 
-<!-- Love Screen -->
 <div class="loveScreen" id="loveScreen">
   <h1>I LOVE YOU</h1>
   <div class="heart">❤️</div>
@@ -117,22 +137,22 @@ const firstScreen = document.getElementById("firstScreen");
 const loveScreen = document.getElementById("loveScreen");
 
 function moveButton() {
-  const x = Math.random() * 300 - 150;
-  const y = Math.random() * 300 - 150;
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 200 - 100;
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
 }
 
-noBtn.addEventListener("mouseover", moveButton);
 noBtn.addEventListener("touchstart", e => { e.preventDefault(); moveButton(); });
+noBtn.addEventListener("mouseover", moveButton);
 
 yesBtn.addEventListener("click", () => {
-  music.play();                 // music starts
-  confetti({ particleCount: 200, spread: 100 });
+  music.play();
+  confetti({ particleCount: 200, spread: 120 });
 
   setTimeout(() => {
-    firstScreen.style.display = "none";  // hide question
-    loveScreen.style.display = "flex";  // show love screen
-  }, 1500);
+    firstScreen.style.display = "none";
+    loveScreen.style.display = "flex";
+  }, 1200);
 });
 </script>
 
