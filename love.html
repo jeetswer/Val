@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>I Love You</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  background:#000;
+  font-family:Arial, sans-serif;
+  text-align:center;
+  overflow:hidden;
+}
+
+h1{
+  font-size:110px;
+  color:#ff2e63;
+  text-shadow:0 0 20px #ff2e63, 0 0 40px #ff2e63, 0 0 60px #ff2e63;
+  animation: glow 2s ease-in-out infinite alternate;
+  margin:0;
+}
+
+@keyframes glow {
+  from { text-shadow:0 0 10px #ff2e63; }
+  to { text-shadow:0 0 40px #ff2e63, 0 0 80px #ff2e63; }
+}
+
+.heart{
+  font-size:130px;
+  margin:20px 0;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+
+.photo{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #ff2e63;
+  box-shadow:0 0 25px #ff2e63;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="PASTE-YOUR-SAJNI-MP3-LINK-HERE" type="audio/mpeg">
+</audio>
+
+<h1>I LOVE YOU</h1>
+<div class="heart">❤️</div>
+
+<img src="her.jpg" class="photo">
+
+</body>
+</html>
