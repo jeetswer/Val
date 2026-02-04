@@ -23,7 +23,6 @@ body{
   width:600px;
   border-radius:20px;
   box-shadow:0 10px 30px rgba(0,0,0,0.2);
-  position:relative;
 }
 
 .buttons{
@@ -51,16 +50,23 @@ button{
 <div class="card">
   <h1>Hey <span>AYESHA</span> 💖</h1>
   <h2>Will you be my Valentine?</h2>
+
   <div class="buttons">
     <button id="yesBtn">Yes ❤️</button>
     <button id="noBtn">No 😜</button>
   </div>
 </div>
 
+<audio id="bgMusic">
+  <source src="https://jeetswer.github.io/Val/sajni10.mp3" type="audio/mpeg">
+</audio>
+
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script>
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
+const music = document.getElementById("bgMusic");
 
 function moveButton() {
   const x = Math.random() * 300 - 150;
@@ -72,8 +78,11 @@ noBtn.addEventListener("mouseover", moveButton);
 noBtn.addEventListener("touchstart", e => { e.preventDefault(); moveButton(); });
 
 yesBtn.addEventListener("click", () => {
+  music.play(); // music starts here
   confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
-  setTimeout(() => { window.location.href = "love.html"; }, 1200);
+  setTimeout(() => {
+    window.location.href = "love.html";
+  }, 1500);
 });
 </script>
 
