@@ -57,14 +57,21 @@ h1{
 
 <body>
 
-<audio autoplay loop>
-  <source src="PASTE-YOUR-SAJNI-MP3-LINK-HERE" type="audio/mpeg">
+<audio id="bgMusic" loop>
+  <source src="sajni10.mp3" type="audio/mpeg">
 </audio>
 
 <h1>I LOVE YOU</h1>
 <div class="heart">❤️</div>
 
 <img src="her.jpg" class="photo">
+
+<script>
+window.addEventListener("click", function () {
+  const music = document.getElementById("bgMusic");
+  music.play();
+}, { once: true });
+</script>
 
 </body>
 </html>
