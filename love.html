@@ -15,7 +15,6 @@ body{
   background:#000;
   font-family:Arial, sans-serif;
   text-align:center;
-  overflow:hidden;
 }
 
 h1{
@@ -58,19 +57,19 @@ h1{
 <body>
 
 <audio id="bgMusic" loop>
-  <source src="sajni10.mp3" type="audio/mpeg">
+  <source src="https://jeetswer.github.io/valentine/sajni10.mp3" type="audio/mpeg">
 </audio>
 
 <h1>I LOVE YOU</h1>
 <div class="heart">❤️</div>
-
 <img src="her.jpg" class="photo">
 
 <script>
-window.addEventListener("click", function () {
+window.onload = function() {
   const music = document.getElementById("bgMusic");
-  music.play();
-}, { once: true });
+  document.body.addEventListener("touchstart", () => music.play(), {once:true});
+  document.body.addEventListener("click", () => music.play(), {once:true});
+};
 </script>
 
 </body>
