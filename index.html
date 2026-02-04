@@ -11,11 +11,12 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
   font-family:Arial, sans-serif;
   overflow:hidden;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 }
 
+/* First screen card */
 .card{
   text-align:center;
   background:white;
@@ -42,24 +43,69 @@ button{
 
 #yesBtn{ background:#ff4d6d; color:white; left:60px; }
 #noBtn{ background:#ccc; right:60px; }
+
+/* Love screen (hidden initially) */
+.loveScreen{
+  display:none;
+  position:absolute;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100%;
+  background:#000;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  text-align:center;
+}
+
+.loveScreen h1{
+  font-size:110px;
+  color:#ff2e63;
+  text-shadow:0 0 20px #ff2e63, 0 0 40px #ff2e63, 0 0 60px #ff2e63;
+}
+
+.heart{
+  font-size:130px;
+  margin:20px 0;
+}
+
+.photo{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #ff2e63;
+  box-shadow:0 0 25px #ff2e63;
+  margin-top:20px;
+}
 </style>
 </head>
 
 <body>
 
-<div class="card">
-  <h1>Hey <span>AYESHA</span> 💖</h1>
-  <h2>Will you be my Valentine?</h2>
+<!-- Music -->
+<audio id="bgMusic" loop>
+  <source src="https://jeetswer.github.io/Val/sajni10.mp3" type="audio/mpeg">
+</audio>
 
+<!-- First Screen -->
+<div class="card" id="firstScreen">
+  <h1>Hey <span>PRIYA</span> 💖</h1>
+  <h2>Will you be my Valentine?</h2>
   <div class="buttons">
     <button id="yesBtn">Yes ❤️</button>
     <button id="noBtn">No 😜</button>
   </div>
 </div>
 
-<audio id="bgMusic">
-  <source src="https://jeetswer.github.io/Val/sajni10.mp3" type="audio/mpeg">
-</audio>
+<!-- Love Screen -->
+<div class="loveScreen" id="loveScreen">
+  <h1>I LOVE YOU</h1>
+  <div class="heart">❤️</div>
+  <img src="her.jpg" class="photo">
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -67,6 +113,8 @@ button{
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 const music = document.getElementById("bgMusic");
+const firstScreen = document.getElementById("firstScreen");
+const loveScreen = document.getElementById("loveScreen");
 
 function moveButton() {
   const x = Math.random() * 300 - 150;
@@ -78,10 +126,12 @@ noBtn.addEventListener("mouseover", moveButton);
 noBtn.addEventListener("touchstart", e => { e.preventDefault(); moveButton(); });
 
 yesBtn.addEventListener("click", () => {
-  music.play(); // music starts here
-  confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
+  music.play();                 // music starts
+  confetti({ particleCount: 200, spread: 100 });
+
   setTimeout(() => {
-    window.location.href = "love.html";
+    firstScreen.style.display = "none";  // hide question
+    loveScreen.style.display = "flex";  // show love screen
   }, 1500);
 });
 </script>
